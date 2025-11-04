@@ -1,0 +1,25 @@
+server:
+  port: 8090
+spring:
+  application:
+    name: AUTHORIZATION-SERVICE
+security:
+  productcomposite:
+    admin:
+      username: admin
+      password: 1234
+    user:
+      username: user
+      password: 0000
+eureka:
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}:${server.port}
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
